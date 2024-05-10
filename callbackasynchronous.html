@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function displaying(text,late,callback){
+            console.log(text);
+
+            //using asynchronous 
+            setTimeout(function(){
+                console.log(late);
+                callback("this is soo late");
+            },5000)
+        }
+
+        function stable(msg){
+            console.log(msg);
+        }
+
+        displaying("Dhanush","you are late",stable)
+
+
+    </script>
+    
+</body>
+</html>
