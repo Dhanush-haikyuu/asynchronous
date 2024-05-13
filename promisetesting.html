@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const userdetails1=new Promise((resolved,rejected)=>{
+            const name="dhanush";
+            if(name){
+                setTimeout(()=>resolved(name),3000)
+            }
+            else{
+                setTimeout(()=>(new Error("there will be an error")))
+            }
+        })
+
+        function getuserdetails(naming){
+            const userdetails2=new Promise((resolved,rejected)=>{
+                const name=[{name:"dhanush",age:20}]
+                if(name){
+                    resolved(name)
+                }
+                else{
+                    rejected(new Error("there will be an error"))
+                }
+            })
+            return userdetails2;
+        }
+
+        userdetails1
+        .then((nme)=>{
+            return getuserdetails(nme);
+            
+        })
+        .then((usering)=>{
+            console.log(usering);
+        })
+
+        .catch((err)=>{
+            console.log(err);
+
+        })
+        .finally(()=>{
+            console.log("finally")
+        })
+
+        console.log("after logging all");
+
+
+    </script>
+    
+</body>
+</html>
